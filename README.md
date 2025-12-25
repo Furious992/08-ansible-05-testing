@@ -49,3 +49,23 @@
 ### Как оформить решение задания
 
 Выполненное домашнее задание пришлите в виде ссылки на .md-файл в вашем репозитории.
+
+
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/1.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/2.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/3.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/4.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/5.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/6.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/7.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/8.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/9.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/10.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/11.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/12.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/13.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/14.png)
+![img](https://github.com/Furious992/08-ansible-05-testing/blob/main/img/15.png)
+
+
+
