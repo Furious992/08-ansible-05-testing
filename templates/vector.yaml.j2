@@ -1,0 +1,17 @@
+api:
+  enabled: true
+  address: 127.0.0.1:8686
+
+sources:
+  dummy_logs:
+    type: demo_logs
+    format: apache_common
+    interval: 1
+
+sinks:
+  stdout:
+    type: console
+    inputs:
+      - dummy_logs
+    encoding:
+      codec: json

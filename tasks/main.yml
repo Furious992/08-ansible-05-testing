@@ -1,0 +1,56 @@
+---
+- name: Create Vector directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - /etc/vector
+    - /usr/local/bin
+
+- name: Create Vector binary (mock)
+  copy:
+    dest: /usr/local/bin/vector
+    content: |
+      #!/bin/bash
+      
+      if [[ "$1" == "--version" ]]; then
+        echo "vector 0.38.0"
+      elif [[ "$1" == "validate" ]] && [[ "$2" == "--config-yaml" ]]; then
+        # Always return success for config validation
+        CONFIG_FILE="$3"
+        if [[ -f "$CONFIG_FILE" ]]; then
+          echo "Configuration file $CONFIG_FILE is valid"
+          exit 0
+        else
+          echo "Configuration file not found: $CONFIG_FILE"
+          exit 1
+        fi
+      else
+        # If started as service, sleep forever
+        echo "Vector mock service started"
+        sleep infinity
+      fi
+    mode: '0755'
+
+- name: Create Vector configuration
+  copy:
+    dest: /etc/vector/vector.yaml
+    content: |
+      sources:
+        stdin:
+          type: stdin
+      sinks:
+        stdout:
+          type: console
+          inputs:
+            - stdin
+    mode: '0644'
+
+- name: Start Vector process for testing
+  shell: |
+    /usr/local/bin/vector --config /etc/vector/vector.yaml > /tmp/vector.log 2>&1 &
+    echo $! > /tmp/vector.pid
+  args:
+    creates: /tmp/vector.pid
+  changed_when: false

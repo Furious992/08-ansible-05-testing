@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: all
+  vars_files:
+    - ../../defaults/main.yml
+  tasks:
+    - name: Include all tasks from vector role
+      include_tasks: ../../tasks/main.yml
+  handlers:
+    - name: Include handlers
+      include_tasks: ../../handlers/main.yml

@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  role_name: vector_role
+  namespace: max
+  author: max
+  description: Vector role
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: Ubuntu
+      versions: ["22.04"]
+  galaxy_tags: ["logging", "vector"]
+dependencies: []

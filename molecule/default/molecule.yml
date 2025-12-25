@@ -1,0 +1,14 @@
+---
+driver:
+  name: docker
+platforms:
+  - name: ubuntu-22
+    image: ubuntu:22.04
+    pre_build_image: true
+  - name: ubuntu-latest
+    image: ubuntu:latest
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
