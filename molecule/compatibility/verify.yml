@@ -1,0 +1,48 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check Vector binary
+      stat:
+        path: /usr/local/bin/vector
+      register: vector_binary
+
+    - name: Assert Vector binary exists
+      assert:
+        that:
+          - vector_binary.stat.exists
+        fail_msg: "Vector binary not found"
+
+    - name: Check Vector version
+      command: /usr/local/bin/vector --version
+      register: vector_version
+      changed_when: false
+
+    - name: Assert Vector version
+      assert:
+        that:
+          - "'vector' in vector_version.stdout"
+        fail_msg: "Vector version check failed"
+
+    - name: Check Vector config
+      stat:
+        path: /etc/vector/vector.yaml
+      register: vector_config
+
+    - name: Assert Vector config exists
+      assert:
+        that:
+          - vector_config.stat.exists
+        fail_msg: "Vector config file not found"
+
+    - name: Validate Vector config
+      command: /usr/local/bin/vector validate --config-yaml /etc/vector/vector.yaml
+      register: validate_result
+      changed_when: false
+
+    - name: Assert config is valid
+      assert:
+        that:
+          - validate_result.rc == 0
+        fail_msg: "Vector config validation failed"
